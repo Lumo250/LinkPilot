@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Link Saver</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.png" type="image/png" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .button-group button {
+      padding: 6px 8px;
+      font-size: 14px;
+      width: 100%;
+      cursor: pointer;
+      border: none;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+    #url-container {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    select.category {
+      margin-right: 6px;
+    }
+    .link {
+      text-decoration: underline;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h2>Smart Link Saver</h2>
+
+  <div class="button-group">
+    <button id="reset-btn">Reset visited</button>
+    <button id="save-btn">Save current link</button>
+    <button id="export-btn">Export</button>
+    <button id="import-btn">Import</button>
+    <input type="file" id="import-file" accept=".json" />
+  </div>
+
+  <div>
+    <input type="text" id="new-category-input" placeholder="New category" />
+    <button id="add-category-btn">Add</button>
+    <div id="dropdown-category-list"></div>
+  </div>
+
+  <div>
+    <label><input type="radio" name="sort" value="default" checked /> Ordered by Input</label>
+    <label><input type="radio" name="sort" value="category" /> Ordered by Category</label>
+  </div>
+
+  <div id="url-container">
+    <ul id="url-list"></ul>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
